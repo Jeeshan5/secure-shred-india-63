@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Secure Data Wiper Design System - Professional, accessible, and trustworthy */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Light mode optimized for professional security interface */
+    --background: 0 0% 98%;
+    --foreground: 220 13% 18%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+    
+    /* Primary - Professional black for security context */
+    --primary: 220 13% 18%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Secondary - Light grey for subtle elements */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+    
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 18%;
+    
+    /* Destructive - Critical red for secure wipe actions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Success - Trust-building green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    
+    /* Warning - Attention-grabbing amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    
+    /* Info - Professional blue accent */
+    --info: 221 83% 53%;
+    --info-foreground: 0 0% 98%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom design tokens for secure data wiper */
+    --security-gradient: linear-gradient(135deg, hsl(220, 13%, 18%) 0%, hsl(220, 30%, 25%) 100%);
+    --danger-gradient: linear-gradient(135deg, hsl(0, 84%, 60%) 0%, hsl(0, 72%, 51%) 100%);
+    --success-gradient: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(142, 69%, 28%) 100%);
+    --glass-bg: hsla(0, 0%, 100%, 0.8);
+    --glass-border: hsla(220, 13%, 91%, 0.3);
+    
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 2px hsla(220, 13%, 18%, 0.05);
+    --shadow-md: 0 4px 6px -1px hsla(220, 13%, 18%, 0.1);
+    --shadow-lg: 0 10px 15px -3px hsla(220, 13%, 18%, 0.1);
+    --shadow-xl: 0 20px 25px -5px hsla(220, 13%, 18%, 0.1);
+    
+    /* Animation curves */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 0 0% 95%;
+    
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 0 0% 95%;
+    --primary-foreground: 220 13% 18%;
+    
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 60%;
+    
+    --accent: 220 13% 15%;
+    --accent-foreground: 0 0% 95%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    
+    --info: 221 83% 53%;
+    --info-foreground: 0 0% 98%;
+    
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 221 83% 53%;
+    
+    --security-gradient: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(220, 14%, 83%) 100%);
+    --danger-gradient: linear-gradient(135deg, hsl(0, 84%, 60%) 0%, hsl(0, 72%, 51%) 100%);
+    --success-gradient: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(142, 69%, 28%) 100%);
+    --glass-bg: hsla(220, 13%, 12%, 0.8);
+    --glass-border: hsla(220, 13%, 20%, 0.3);
+    
+    --shadow-sm: 0 1px 2px hsla(0, 0%, 0%, 0.1);
+    --shadow-md: 0 4px 6px -1px hsla(0, 0%, 0%, 0.2);
+    --shadow-lg: 0 10px 15px -3px hsla(0, 0%, 0%, 0.3);
+    --shadow-xl: 0 20px 25px -5px hsla(0, 0%, 0%, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  /* Security-focused component styles */
+  .security-hero {
+    @apply relative overflow-hidden rounded-3xl bg-gradient-to-br from-background to-secondary;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsla(var(--info), 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsla(var(--success), 0.1) 0%, transparent 50%);
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .security-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: var(--success-gradient);
+    color: hsl(var(--success-foreground));
+  }
+  
+  .danger-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: var(--danger-gradient);
+    color: hsl(var(--destructive-foreground));
+  }
+  
+  .progress-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .progress-glow::after {
+    content: '';
+    @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    animation: shimmer 2s infinite;
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .security-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, hsla(var(--border), 0.2) 2px, transparent 2px);
+    background-size: 50px 50px;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s var(--ease-out-quart);
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s var(--ease-out-quart);
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s var(--ease-in-out-back);
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.6s var(--ease-out-quart);
+  }
+  
+  .shadow-security {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .shadow-floating {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .text-gradient {
+    background: var(--security-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-security-gradient {
+    background: var(--security-gradient);
+  }
+  
+  .bg-danger-gradient {
+    background: var(--danger-gradient);
+  }
+  
+  .bg-success-gradient {
+    background: var(--success-gradient);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .security-hero {
+    @apply rounded-2xl;
+  }
+  
+  .glass-card {
+    @apply mx-2;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: 220 13% 70%;
+  }
+  
+  .dark {
+    --border: 220 13% 40%;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
